@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Lluvia de Amor 💖</title>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(180deg, #ff9a9e, #fad0c4);
+        overflow: hidden;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .amor {
+        position: fixed;
+        top: -50px;
+        animation: caer linear forwards;
+        pointer-events: none;
+        user-select: none;
+        opacity: 0.9;
+    }
+
+    @keyframes caer {
+        to {
+            transform: translateY(110vh);
+            opacity: 0;
+        }
+    }
+</style>
+</head>
+<body>
+
+<script>
+    const elementos = ["❤️", "💖", "💘", "Te amo", "💕", "Te amo 💗"];
+
+    function crearAmor() {
+        const amor = document.createElement("div");
+        amor.className = "amor";
+        amor.innerHTML = elementos[Math.floor(Math.random() * elementos.length)];
+
+        amor.style.left = Math.random() * 100 + "vw";
+        amor.style.fontSize = (Math.random() * 20 + 20) + "px";
+        amor.style.animationDuration = (Math.random() * 3 + 3) + "s";
+
+        document.body.appendChild(amor);
+
+        setTimeout(() => {
+            amor.remove();
+        }, 7000);
+    }
+
+    setInterval(crearAmor, 250);
+</script>
+
+</body>
+</html>
